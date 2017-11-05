@@ -11,9 +11,7 @@ mode : selfcontained # {standalone, draft}
 knit : slidify::knit2slides
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 ## Objective
 
@@ -31,16 +29,10 @@ Slider used to select start and end period of the date range.
 
 ## Example 1: Full data set
 
-```{r echo = FALSE}
-library(datasets)
-eusm <- EuStockMarkets
-plot(eusm, plot.type = "single", col = 1:4, main = "Plot of indices for selected time period", ylab = "Index value")
-```
+![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1-1.png)
 
 ---
 
 ## Example 2: Restricted data range
 
-```{r echo = FALSE}
-plot(eusm, plot.type = "single", col = 1:4, main = "Plot of indices for selected time period", ylab = "Index value", xlim = c(1994, 1995))
-```
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png)
