@@ -1,0 +1,46 @@
+---
+title: "Charting Stock Market Performance using Shiny"
+author: "Tim Pearce"
+date: "1 November 2017"
+job :
+framework : io2012 # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js # {highlight.js, prettify, highlight}
+hitheme : tomorrow #
+widgets : [] # {mathjax, quiz, bootstrap}
+mode : selfcontained # {standalone, draft}
+knit : slidify::knit2slides
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Objective
+
+Plot data on the closing values of major EU stock market indices (EuStockMarkets in datasets package) for a user-selected date range.
+
+Future planned enhancements: (i) allow import of alternative time series, rather than hard-coding EuStockMarkets; (ii) rebase allplotted indices to same starting point to show relative performance.
+
+---
+
+## Approach
+
+Slider used to select start and end period of the date range.
+
+---
+
+## Example 1: Full data set
+
+```{r echo = FALSE}
+library(datasets)
+eusm <- EuStockMarkets
+plot(eusm, plot.type = "single", col = 1:4, main = "Plot of indices for selected time period", ylab = "Index value")
+```
+
+---
+
+## Example 2: Restricted data range
+
+```{r echo = FALSE}
+plot(eusm, plot.type = "single", col = 1:4, main = "Plot of indices for selected time period", ylab = "Index value", xlim = c(1994, 1995))
+```

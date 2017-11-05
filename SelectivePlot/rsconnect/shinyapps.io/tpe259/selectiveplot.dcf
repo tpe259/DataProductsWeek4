@@ -1,0 +1,12 @@
+name: selectiveplot
+title:
+username:
+account: tpe259
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 232107
+bundleId: 1059973
+url: https://tpe259.shinyapps.io/selectiveplot/
+when: 1509895028.66476
+asMultiple: FALSE
+asStatic: FALSE
