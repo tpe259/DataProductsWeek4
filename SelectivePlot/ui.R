@@ -8,26 +8,23 @@
 #
 
 library(shiny)
+library(datasets)
+library(timeSeries)
+eusm <- EuStockMarkets
 
-# Define UI for application that draws a histogram
 shinyUI(fluidPage(
-  
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
-  
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
-    ),
-    
-    # Show a plot of the generated distribution
-    mainPanel(
-       plotOutput("distPlot")
-    )
-  )
+        titlePanel("Performance of Major European Stock Markets"),
+        sidebarLayout(
+                sidebarPanel(
+                        sliderInput("sliderRange", label = "Select start and end years", min = start(eusm), max = end(eusm), value = end(eusm))#,
+                        #sliderInput("sliderMax", label = "Select end year", min = start(eusm), max = end(eusm), value = end(eusm))#,
+                        #actionButton("Produce plot", label = "DoPlot")
+                ),
+                mainPanel(
+                        #h3("[]"),
+                        plotOutput("plot1")
+                        #textOutput("text")
+                )
+        )
 ))
+

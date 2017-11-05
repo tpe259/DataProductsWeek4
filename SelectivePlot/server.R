@@ -8,19 +8,14 @@
 #
 
 library(shiny)
+library(datasets)
+library(timeSeries)
+eusm <- EuStockMarkets
 
-# Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
-  })
-  
+        #plotRange <- reactive({sliderRange})
+        output$plot1 <- renderPlot({
+                plot(eusm, plot.type = "single", col = 1:4, main = "Plot of indices for selected time period", ylab = "Index value", xlim = input$sliderRange))
+        #output$text <- renderText(input$sliderRange)
+        })
 })
